@@ -51,23 +51,8 @@ task('restart:workers', function () {
 })->select('type=app');
 
 task('restart:services', ['restart:web', 'restart:workers']);
-task('restart:services', ['restart:workers']);
-
-// [Optional] For Build NPM
-task('npm:install', function () {
-    // run('nvm install --lts');
-    // run('nvm use --lts');
-    run('cd {{release_path}} && npm install --force');
-});
-
-task('npm:run-build', function () {
-    run('cd {{release_path}} && npm run build');
-});
 
 after('deploy:failed', 'deploy:unlock');
 
 before('artisan:config:cache', 'artisan:clear-compiled');
 before('deploy:success', 'restart:services');
-
-after('deploy:success', 'npm:install');
-after('npm:install', 'npm:run-build');
