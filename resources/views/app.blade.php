@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" type="image/png" href="{{ asset('images/erwmlogo.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/erwmlogo.png') }}" />
 
     <title>{{ config('app.name') }}</title>
     @routes
